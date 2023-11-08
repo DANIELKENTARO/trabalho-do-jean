@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo clicker</title>
+    <style>
+        body{
+            font-size: 150%;
+            margin: auto;
+            background-color: rgb(0, 0, 0);
+            color: #ffffff;
+        }
+        .area{
+            width:  100%;
+            height: 50px;
+            cursor: grabbing;
+        }
+        footer{
+            margin-top: 27%;
+            background-color: #ffffff;
+        }
+    </style>
+    </head>
+<body align='center'>
+    <div class="area"></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="area" onclick="clique()">clique</div>
+    <br>
+    <div class="area" onclick="upgrader()">upgrade</div>
+    <script>
+        let click=0
+        let u=0
+        let a=window.document.getElementsByClassName("area")[0];
+        function clique(){
+if(u<=1){
+    a.innerText=click++;
+    a.style.background='black';
+    a.style.color='white'
+}
+else if(u>1){
+    a.innerText=(click++)*1*u;
+    a.style.background='black';
+    a.style.color='white'
+}
+        }
+        function upgrader(){
+        if(click>u+1){
+        click=click-1*u;
+        u++
+    }
+    else{
+        alert('clicks insuficiente');
+    }
+}
+    </script>
+</body>
+</html>
