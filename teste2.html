@@ -24,34 +24,44 @@
     </style>
     </head>
 <body align='center'>
-    <div class="area"></div>
+    <div class="area" onchange="pontuou()"></div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="area" onclick="clique()">clique</div>
     <br>
     <div class="area" onclick="upgrader()">upgrade</div>
+    <br><br>
+    <div class="area"></div>
     <script>
         let click=0
         let u=0
-        let a=window.document.getElementsByClassName("area")[0];
+        let preço=2+u
+        let pontos=click
+        let a=document.getElementsByClassName("area")[0];
+        let b=document.getElementsByClassName('area')[3]
+        function pontuou() {
+    a.innerHTML = 'Pontuação: \n'+pontos;
+}
         function clique(){
 if(u<=1){
-    a.innerText=click++;
-    a.style.background='black';
-    a.style.color='white'
+    pontos=click++;
+    pontuou()
 }
-else if(u>1){
-    a.innerText=(click++)*1*u;
-    a.style.background='black';
-    a.style.color='white'
+else if(u>=1){
+    pontos=click++*u;
+    pontuou()
 }
         }
         function upgrader(){
-        if(click>u+1){
-        click=click-1*u;
-        u++
+        if(click-preço>u){
+            click-preço+u;
+            u++
+            b.innerHTML=("pontos por click: \n"+u);
+            pontuou()
     }
     else{
-        alert('clicks insuficiente');
+        b.innerHTML=("valor insuficiente pontos necesários: \n"+u);
+
+        pontuou()
     }
 }
     </script>
