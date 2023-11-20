@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jogo</title>
+    <title>jogo clicker quebrado</title>
     <style>
         body{
             font-size: 150%;
@@ -23,56 +23,49 @@
             background-color: #ffffff;
         }
     </style>
-</head>
+    </head>
 <body align='center'>
-    <div class="area" onclick="pontuação()"></div>
+    <div class="area"></div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div class="area" onclick="clique()|pontuação()">clique</div>
+    <div class="area" onclick="clique(1)">clique</div>
     <br>
-    <div class="area" onclick="upgrader()|valor()">upgrade</div>
+    <span class="area" onclick="upgrader(1)"></span>
     <br><br>
     <div class="area"></div>
     <div class="area"></div>
     <script>
-        let força=0;
-        let pontos=0;
-        let upgrade=0;
-        let preço=2;
-    let a=document.getElementsByClassName('area')[0];
-    let b=document.getElementsByClassName('area')[2];
-    let c=document.getElementsByClassName('area')[3];
-    function pontuação(){
-        a.innerText='Pontuação:\n'+pontos;
+        let click=0
+        let u=0
+        
+        let pontos=click
+        let a=document.getElementsByClassName("area")[0];
+        let b=document.getElementsByClassName('area')[3]
+        function pontuou() {
+    a.innerHTML = 'Pontuação: \n'+pontos;
+}
+        function clique(){
+if(u<=1){
+    pontos=click++;
+    pontuou()
+}
+else if(u>=1){
+    pontos=click++*u;
+    pontuou()
+}
+        }
+        function upgrader(){
+        if(click-preço>u){
+            click-preço+u;
+            u++
+            b.innerHTML=("pontos por click: \n"+u);
+            pontuou()
     }
-    function valor(){
-        c.innerText='valor do upgrade:\n'+valor;
+    else{
+        b.innerHTML=("valor insuficiente pontos necesários: \n"+u);
+
+        pontuou()
     }
-    function click(){
-        if(upgrade==0){
-            força=pontos++
-            onclick=pontuação()
-        }
-        else if(upgrade>1){
-            pontos*força
-            onclick=pontuação()
-        }
-        else{
-            pontos++
-        }
-    }
-    function upgrader(){
-        if(pontos-preço>>0){
-            pontos-preço;
-            preço++
-            upgrade++
-            força++
-            onclick=pontuação()+valor()
-        }
-        else{
-            pontuação()
-            valor()
-        }
-    }
+}
     </script>
 </body>
 </html>
