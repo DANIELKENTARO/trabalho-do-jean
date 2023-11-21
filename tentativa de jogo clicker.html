@@ -4,68 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jogo clicker quebrado</title>
+    <title>contador de clicks</title>
     <style>
         body{
             font-size: 150%;
             margin: auto;
             background-color: rgb(0, 0, 0);
             color: #ffffff;
-            user-select: none;
         }
         .area{
-            width:  100%;
-            height: 50px;
+            width: 200px;
+            height: 100px;
             cursor: grabbing;
-        }
-        footer{
-            margin-top: 27%;
-            background-color: #ffffff;
         }
     </style>
     </head>
 <body align='center'>
-    <div class="area"></div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div class="area" onclick="clique(1)">clique</div>
+    <div class="area" onclick="clique()">clique</div>
     <br>
-    <span class="area" onclick="upgrader(1)"></span>
-    <br><br>
-    <div class="area"></div>
-    <div class="area"></div>
+    <div class="area" onclick="upgrade()">upgrade</div>
+    <div class="area"><div>
     <script>
         let click=0
-        let u=0
-        
-        let pontos=click
-        let a=document.getElementsByClassName("area")[0];
-        let b=document.getElementsByClassName('area')[3]
-        function pontuou() {
-    a.innerHTML = 'Pontuação: \n'+pontos;
-}
+        let a=document.getElementsByClassName("area")[0].innerHTML =('Pontuação: \n')+pontos;
+        let b=document.getElementsByClassName('area')[1].innerHTML=("upgrade <br> pontos por click: \n"+click);
+        let c=document.getElementsByClassName('area')[2].innerHTML=("valor do upgrade: \n"+preço);
         function clique(){
-if(u<=1){
-    pontos=click++;
-    pontuou()
+            if(u==0){
+                pontos=click++;
+                    }
+            else if(u>1){
+                pontos=click*u;
+                    }
 }
-else if(u>=1){
-    pontos=click++*u;
-    pontuou()
-}
-        }
         function upgrader(){
-        if(click-preço>u){
-            click-preço+u;
-            u++
-            b.innerHTML=("pontos por click: \n"+u);
-            pontuou()
-    }
-    else{
-        b.innerHTML=("valor insuficiente pontos necesários: \n"+u);
-
-        pontuou()
-    }
-}
+            let preço=''
+            for (let preço=2; preço<100000000000000000; preço++*u){
+            if (click-u>preço)
+                u++
+                pontos=click-u;
+                preço**
+            javascript
+            }
+            {
+                return 
+            }
+        }
     </script>
 </body>
 </html>

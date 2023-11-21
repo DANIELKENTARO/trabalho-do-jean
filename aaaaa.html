@@ -35,42 +35,46 @@
     <div class="area"></div>
     <script>
         let click=1
-        let u=0
+        let u=1
         let preço=2
         let pontos='';
         let a=document.getElementsByClassName("area")[0];
         let c=document.getElementsByClassName("area")[2];
         let b=document.getElementsByClassName('area')[3];
-        function pontuou(){
+        function pontuou1(){
             a.innerHTML = 'Pontuação: \n'+pontos;
 }
-        function clique(){
-            if(u==0){
-                pontos=click++;
-                pontuou()
-                    }
-            else if(u>1){
-                pontos=pontos++*u;
-                pontuou()
-                    }
+        function pontuou2(){
+            a.innerHTML = 'Pontuação: \n'+(click-preço);
 }
+
+function clique(){
+    if(u=1){
+        pontos=click++;
+        pontuou1()
+            }
+            else if(u>=2){
+            pontos=click++*u;
+            pontuou1()
+            }
+        }
         function upgrader(){
-            if(pontos-preço>>0){
-                pontos-preço;
-                preço**
+            if(click-preço>>0){
+                pontos=click-preço;
+                preço++
                 u++
-                c.innerHTML=("upgrade <br> pontos por click: \n"+click);
-                pontuou()
+                c.innerHTML=("upgrade <br> pontos por click: \n"+(u));
+                pontuou2()
                 valor()
                     }
                 else{
-                pontuou()
                 valor()
                     }
         function valor(){
                 b.innerHTML=("valor do upgrade: \n"+preço);
                     }
 }
+
     </script>
 </body>
 </html>
